@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import NotesBody from "./components/NotesBody";
 import NotesHeader from "./components/NotesHeader";
@@ -47,6 +48,9 @@ const App = () => {
 			activeNotes.push(note);
 		}
 	});
+	useEffect(() => {
+		setFilteredNotes(notes);
+	}, [notes]);
 	return (
 		<>
 			<NotesHeader onSearch={onSearch} />
