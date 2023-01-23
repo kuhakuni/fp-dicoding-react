@@ -24,7 +24,7 @@
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ftp://bemfilkom.ub.ac.id:21/
+          server: ftp.bemfilkom.ub.ac.id:21/
           username: bemfilkom
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./build/"
