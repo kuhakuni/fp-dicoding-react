@@ -27,5 +27,5 @@
           server: ftp://bemfilkom.ub.ac.id:21/
           username: bemfilkom
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "build"
-          server-dir	: "test"
+          local-dir: "./build/"
+          server-dir	: "./test/"
