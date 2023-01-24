@@ -9,10 +9,10 @@
       - name: 🚚 Get latest code
         uses: actions/checkout@v2.3.2
 
-      - name: Use Node.js 12
+      - name: Use Node.js 14
         uses: actions/setup-node@v2-beta
         with:
-          node-version: '12'
+          node-version: '14'
 
       - name: 🔨 Build Project
         run: |
@@ -22,10 +22,12 @@
           CI: false
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
         with:
-          server: ftp.bemfilkom.ub.ac.id/
-          username: bemfilkom
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./build/"
-          server-dir	: "./test/"
+          ftp_host: ftp://bemfilkom.ub.ac.id:21/
+          ftp_username: bemfilkom
+          ftp_password: ${{ secrets.FTP_PASSWORD }}
+          local_source_dir: "build"
+          dist_target_dir: "test"
+          # WARNING: OPTION BELOW DELETES/REPLACES ALL REMOTE FILES THAT'S NOT IN BUILD! DONT USE FOR MAIN WEB DEPLOY!
+          delete: "false" 
